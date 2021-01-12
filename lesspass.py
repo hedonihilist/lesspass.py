@@ -267,9 +267,10 @@ if __name__ == '__main__':
 
     # calculate password
     if use_profile(args):
-        if profile_list is None and args.profile_name not in profile_list:
+        if profile_list is None or args.profile_name not in profile_list:
             print('no such profile', file=sys.stderr)
             sys.exit(1)
+        profile = profile_list[args.profile_name]
         # got profile
         password = main(profile['site'], profile['login'])
     else:
@@ -288,4 +289,4 @@ if __name__ == '__main__':
         add_profile_to_config_file(args)
 
     # output password
-    print(password)
+    print(password, end='')
