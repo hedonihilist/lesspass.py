@@ -289,4 +289,4 @@ if __name__ == '__main__':
         add_profile_to_config_file(args)
 
     # output password
-    print(password, end='')
+    print(password)
